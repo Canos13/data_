@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    
+  }
+
+  .formulario{
+    width: 25%;
+    margin: 0 auto;
+  }
+  
+  /* Input Forms*/
+  input[type="text"], input[type="password"]{
+    outline: none;
+    padding: 20px;
+    display: block;
+    width: 300px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    margin: 8px auto 20px;
+  }
+
+  .txtH1{
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .txtH1, .labelForm{
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+  }
+
+  .labelForm{
+    padding-left: 20px;
+  }
+
+  form{
+    width:100%;
+  }
+  
+  input[type="submit"] {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    font-size: 1.3rem;
+    color: #fff;
+    background: #c9083b;
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #d11c4c;
+  }
+
+  .top{
+    padding-top: 5%;
+    padding-bottom: 3%;
+  }
