@@ -9,8 +9,7 @@
     require '../../model/Usuario.php';
     require '../../model/BD.php';
   
-    $BD = new BD("localhost","root","","data");
-
+    $BD = new BD();
     $message = '';
 
   if (!empty($_POST['user']) && !empty($_POST['password'])) {
@@ -33,12 +32,12 @@
     <link rel="stylesheet" href="../css/styles.css">
 
     <?php 
-    $band =1;
-    require "../helpers/navbar.php"; 
+      $band =1;
+      require "../helpers/navbar.php"; 
     ?>
     
     <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
+      <p class="message"> <?= $message ?></p>
     <?php endif; ?>
 
     <section class="bg-blue">
