@@ -6,7 +6,7 @@
     } else {
         require '../../model/BD.php';
 
-        $bd = new BD("localhost","root","","data");
+        $bd = new BD();
         $username = $bd->ConsultarID($_SESSION['user_id']);
         /* echo $username; */
     }

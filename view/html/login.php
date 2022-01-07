@@ -11,12 +11,12 @@
 
   if (!empty($_POST['user']) && !empty($_POST['password'])) {
     $Usuario = new Usuario($_POST['user'],$_POST['password']);
-    $BD = new BD("localhost","root","","data");
+    $BD = new BD();
     $userBD = $BD->Consultar($Usuario);
     $message = '';
 
     if ($userBD) {
-      if(password_verify($Usuario->getPass() , $userBD->getPass() )){
+      if(password_verify($Usuario->getPass() , $userBD->getPass())){
         $_SESSION['user_id'] = $userBD->getId();
         header("Location: home.php");
       }
@@ -33,18 +33,17 @@
     <title>Iniciar Sesión</title>
 
     <?php 
-    $band =0;
-    require "../helpers/navbar.php"; 
+      $band =0;
+      require "../helpers/navbar.php"; 
     ?>
 
     <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
+      <p class="message"> <?= $message ?></p>
     <?php endif; ?>
 
     <section class="bg-blue">
       <div class="formulario top">
         <h1 class="txtH1">Iniciar Sesión</h1>
-        <form action="login.php" method="POST">
         <?php require "../helpers/form.php" ?>
       </div>
       
