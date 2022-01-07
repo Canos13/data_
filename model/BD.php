@@ -1,13 +1,11 @@
 <?php
-    
     class BD{
-
         private $sql;
 
-        public function __construct($host,$user,$pass,$bd){
-            $this->sql = new mysqli($host,$user,$pass,$bd);
+        public function __construct(){
+            $this->sql = new mysqli("localhost","root","","data");
         }
-
+        
         public function InsertUser($Usuario){
             $consulta = "INSERT INTO users (username, pass) values ('".$Usuario->getUsername()."', '".$Usuario->getPass()."')";
             $this->sql->query($consulta);
@@ -22,9 +20,9 @@
                     $UsuarioBD = new Usuario($row['username'], $row['pass']);
                     $UsuarioBD->setId($row['id']);
                     return $UsuarioBD;
-                }  
+                }
             } else {
-                return false;
+                    return false;
             }
         }
 

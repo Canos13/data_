@@ -2,7 +2,7 @@
 
     require "../model/BD.php";
 
-    $bd = new BD("localhost","root","","data");
+    $bd = new BD();
 
     $bd->ingresarCategoria($_POST['nombre']);
 
