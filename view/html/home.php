@@ -13,6 +13,7 @@
     include "../helpers/cabecera.php"
 ?>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/Main.css">
     <title>Home</title>
 <?php  include "../helpers/navbar.php" ?>
 <?php  include "../helpers/cuerpo.php" ?>
