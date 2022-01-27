@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/popup.css">
     <link rel="stylesheet" href="../css/cards.css">
-    <title>Crear seccion</title>
+    <title>Crear sección</title>
 <?php 
     session_start();
     require "../helpers/navbar.php";  
