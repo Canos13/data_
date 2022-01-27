@@ -12,8 +12,9 @@
     --weight3: 600;
 }
 
-.main{
+.menu{
     font-size: 1.23rem;
+    
 }
 
 .attribution { 
@@ -26,11 +27,11 @@
 .titleHeader:first-of-type {
     font-weight: var(--weight1);
     color: var(--varyDarkBlue);
-
 }
 
 .titleHeader:last-of-type {
     color: var(--varyDarkBlue);
+    margin: 15px 0;
 }
 
 @media (max-width: 400px) {
@@ -42,19 +43,22 @@
 .header {
     text-align: center;
     line-height: 0.8;
-    margin-bottom: 50px;
-    margin-top: 100px;
+    margin-bottom: 30px;
+    margin-top: 60px;
+    font-family: 'Baloo 2', cursive;
 }
 
 .header p {
     margin: 0 auto;
-    line-height: 2;
+    line-height: 1.5;
     color: var(--grayishBlue);
+    font-family: 'Baloo 2', cursive;
 }
 
 
 .box p {
     color: var(--grayishBlue);
+    font-family: 'Baloo 2', cursive;
 }
 
 .box {
@@ -97,6 +101,7 @@ img {
 .h2 {
     color: var(--varyDarkBlue);
     font-weight: var(--weight3);
+    font-family: 'Baloo 2', cursive;
 }
 
 
