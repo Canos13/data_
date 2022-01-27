@@ -62,7 +62,7 @@
             </div>
         </section> -->
         
-        <div class="main">
+        <div class="menu">
             <div class="header">
                 <h1 class="titleHeader">Reliable, efficient delivery</h1>
                 <h1 class="titleHeader">Powered by Technology</h1>
