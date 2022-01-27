@@ -8,7 +8,9 @@
         rel="shortcut icon" 
         href=<?php if(isset($_SESSION['user_id'])){
                         echo "../images/Data-info.ico" ;
-                    } else { echo "view/images/Data-info.ico"; }
+                    } else { 
+                        echo "view/images/Data-info.ico"; 
+                    }
              ?>   
         type="image/x-icon"
     >
