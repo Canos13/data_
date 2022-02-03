@@ -3,7 +3,7 @@
         private $sql;
 
         public function __construct(){
-            $this->sql = new mysqli("localhost","root","","data");
+            $this->sql = new mysqli("by3tkwb22zo3nffnstse-mysql.services.clever-cloud.com","uuxbcszkci1q50hq","HSWqLkRqGOKKTrC47Gj5","by3tkwb22zo3nffnstse");
         }
         
         public function InsertUser($Usuario){
