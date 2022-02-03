@@ -13,7 +13,7 @@
       $passw = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $Usuario = new Usuario($_POST['user'], $passw);
       if ($BD->InsertUser($Usuario)) {
-          $message = 'Usuario creado correctamente';
+          header('Location: home.php');
       } else {
           $message = 'Error al intentar crear el usuario';
       } 
