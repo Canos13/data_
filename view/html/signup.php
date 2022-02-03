@@ -1,27 +1,22 @@
 <?php
+  session_start();
+  if (isset($_SESSION['user_id'])) {
+    header('Location: home.php');
+  }
+  require '../../model/Usuario.php';
+  require '../../model/BD.php';
 
-    session_start();
-
-    if (isset($_SESSION['user_id'])) {
-      header('Location: home.php');
-    }
-    
-    require '../../model/Usuario.php';
-    require '../../model/BD.php';
-  
-    $BD = new BD();
-    $message = '';
+  $BD = new BD();
+  $message = '';
 
   if (!empty($_POST['user']) && !empty($_POST['password'])) {
-
-    $passw = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $Usuario = new Usuario($_POST['user'], $passw);
-
-    if ($BD->InsertUser($Usuario)) {
-      $message = 'Usuario creado correctamente';
-    } else {
-      $message = 'Error al intentar crear el usuario';
-    } 
+      $passw = password_hash($_POST['password'], PASSWORD_BCRYPT);
+      $Usuario = new Usuario($_POST['user'], $passw);
+      if ($BD->InsertUser($Usuario)) {
+          $message = 'Usuario creado correctamente';
+      } else {
+          $message = 'Error al intentar crear el usuario';
+      } 
   }
   require "../helpers/cabecera.php";
 ?>

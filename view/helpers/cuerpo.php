@@ -2,9 +2,13 @@
     <section class="main">
         <section class="One">
                 <div class="text">
-            <?php  if(!isset($_SESSION['user_id'])){ ?>
+            <?php if(!isset($_SESSION['user_id'])){ ?>
                     <h1>Crea tu sitio con tus datos</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere unde, sed similique in ipsa consequuntur quia asperiores laudantium expedita inventore minus beatae tempore ipsum error nulla at voluptatibus illo totam</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur 
+                        adipisicing elit. Facere unde, sed similique 
+                        in ipsa consequuntur quia asperiores laudantium 
+                        expedita inventore minus beatae tempore ipsum error 
+                        nulla at voluptatibus illo totam</p>
                 </div>
                 <img src="view/images/escuela.png">
             <?php } else { ?>

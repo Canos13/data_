@@ -36,9 +36,9 @@
 
         public function ingresarCategoria($nombre){
             $consulta = "INSERT INTO categoria (nombre) values ('$nombre')";
-            /* $create = "CREATE TABLE $nombre (id INT AUTO_INCREMENT PRIMARY KEY)"; */
+            $create = "CREATE TABLE $nombre (id INT AUTO_INCREMENT PRIMARY KEY)";
             $this->sql->query($consulta);
-            /* $this->sql->query($create); */
+            $this->sql->query($create);
         }
 
         public function consultarCategorias(){
