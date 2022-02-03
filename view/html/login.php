@@ -1,7 +1,5 @@
 <?php
-
   session_start();
-
   if (isset($_SESSION['user_id'])) {
     header('Location: home.php');
   }
@@ -43,7 +41,7 @@
 
     <section class="bg-blue">
       <div class="formulario top">
-        <h1 class="txtH1">Iniciar Sesión</h1>
+        <h1 class="txtH1">Iniciar</h1>
         <?php require "../helpers/form.php" ?>
       </div>
       
