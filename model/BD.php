@@ -3,8 +3,8 @@
         private $sql;
 
         public function __construct(){
-            $this->sql = new mysqli("192.168.20.74","data","data","data");
-            /* "by3tkwb22zo3nffnstse-mysql.services.clever-cloud.com","uuxbcszkci1q50hq","HSWqLkRqGOKKTrC47Gj5","by3tkwb22zo3nffnstse" */
+            /* $this->sql = new mysqli("192.168.20.74","data","data","data"); */
+            $this->sql = new mysqli("by3tkwb22zo3nffnstse-mysql.services.clever-cloud.com","uuxbcszkci1q50hq","HSWqLkRqGOKKTrC47Gj5","by3tkwb22zo3nffnstse");
         }
         
         public function InsertUser($Usuario){
@@ -47,9 +47,32 @@
             $consulta = "SELECT * FROM categoria";
             $resultado = $this->sql->query($consulta);
             while($row = $resultado->fetch_assoc()){
-                array_push($categorias, $row['nombre']);
+                $categoria = new Categoria();
+                $categoria->setId($row['id']);
+                $categoria->setName($row['nombre']);
+                array_push($categorias, $categoria);
             }
             return $categorias;
+        }
+
+        public function insertarColumna($idTabla, $nombreCampo, $tipoCampo){
+            $consulta = "SELECT nombre FROM categoria WHERE id=$idTabla";
+            $resultado = $this->sql->query($consulta);
+            while($row = $resultado->fetch_assoc()){
+                $nombreTabla = $row['nombre'];
+                if($tipoCampo == 1){
+                    $insertarColumn = "ALTER TABLE $nombreTabla ADD $nombreCampo FLOAT";
+                } else {
+                    $insertarColumna = "ALTER TABLE $nombreTabla ADD $nombreCampo VARCHAR(100)";
+                }
+            }
+            $this->sql->query($insertarColumn);
+        }
+
+        public function insertarDatosEnTabla($data){
+            $consulta = " INSERT INTO Calles VALUES ($data) ";
+            echo $consulta;
+            $this->sql->query($consulta);
         }
     } 
 ?>
