@@ -13,6 +13,8 @@
       $passw = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $Usuario = new Usuario($_POST['user'], $passw);
       if ($BD->InsertUser($Usuario)) {
+          $userBD = $BD->Consultar($Usuario);
+          $_SESSION['user_id'] = $userBD->getId();
           header('Location: home.php');
       } else {
           $message = 'Error al intentar crear el usuario';
