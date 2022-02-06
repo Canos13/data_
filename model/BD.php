@@ -37,7 +37,7 @@
 
         public function ingresarCategoria($nombre){
             $consulta = "INSERT INTO categoria (nombre) values ('$nombre')";
-            $create = "CREATE TABLE $nombre (id INT AUTO_INCREMENT PRIMARY KEY)";
+            $create = "CREATE TABLE $nombre (id INT PRIMARY KEY)";
             $this->sql->query($consulta);
             $this->sql->query($create);
         }
@@ -63,15 +63,19 @@
                 if($tipoCampo == 1){
                     $insertarColumn = "ALTER TABLE $nombreTabla ADD $nombreCampo FLOAT";
                 } else {
-                    $insertarColumna = "ALTER TABLE $nombreTabla ADD $nombreCampo VARCHAR(100)";
+                    $insertarColumn = "ALTER TABLE $nombreTabla ADD $nombreCampo varchar(100)";
                 }
             }
             $this->sql->query($insertarColumn);
         }
 
-        public function insertarDatosEnTabla($data){
-            $consulta = " INSERT INTO Calles VALUES ($data) ";
-            echo $consulta;
+        public function insertarDatosEnTabla($data, $idTabla){
+            $select = "SELECT nombre FROM categoria WHERE id=$idTabla";
+            $resultado = $this->sql->query($select);
+            while($row = $resultado->fetch_assoc()){
+                $nombreTabla = $row['nombre'];
+                $consulta = "INSERT INTO $nombreTabla VALUES ($data)";
+            }
             $this->sql->query($consulta);
         }
     } 

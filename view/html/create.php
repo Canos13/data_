@@ -34,7 +34,7 @@
                                     printf('<div class="content">');
                                         printf('<h3>%s</h3>', $categoria->getName());
                                         printf('<a href="#popup2" onclick="value(%d)" id="%d">Agregar Campos</a>',$categoria->getId(),$categoria->getId());
-                                        printf('<a href="#popup3">Cargar Información</a>');
+                                        printf('<a href="#popup3" onclick="val(%d)">Cargar Información</a>',$categoria->getId());
                                     printf('</div>');
                                 printf('</div>');
                             printf('</div>');
@@ -88,10 +88,10 @@
             <a class="close" href="#">&times;</a>
             <div class="content">
                 <form action="../../controller/uploadCSV.php" enctype="multipart/form-data" method="post">
+                    <input type="number" id="idCate" name="idCate" style="display:none">
                     <img src="../images/csv.jpg" class="img-csv">
                     <br>
                     <input type="file" name="csv" required><br /><br />
-                    <!-- <input type="text" placeholder="Nombre" name="nombre" autocomplete="off" required><br> -->
                     <input type="submit" name="enviar" value="Cargar .CSV">
                 </form>
             </div>
@@ -102,6 +102,13 @@
         function value(index){
             console.log(index);
             var idCateg = document.getElementById('idCateg');
+            idCateg.setAttribute("value", index);
+        }
+
+
+        function val(index){
+            console.log(index);
+            var idCateg = document.getElementById('idCate');
             idCateg.setAttribute("value", index);
         }
     </script>

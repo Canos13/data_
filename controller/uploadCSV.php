@@ -1,6 +1,7 @@
 <?php
     require("../model/BD.php");
     $ruta="Upload/";
+    $idTabla = $_POST['idCate'];
 
     foreach($_FILES as $key){
 
@@ -22,23 +23,25 @@
 		}
     }
 
-    $x=0;
+    $i=0;
 	$data=array();
 	$fichero=fopen($destino, "r");
     $bd = new BD();
 	while(($datos= fgetcsv($fichero,1000)) != FALSE){
-		$x++;
-		if($x>1){
-            
-                print_r("<pre>");
-                    print_r($datos);
-                print_r("</pre>");
-            
-                $bd->insertarDatosEnTabla(implode(",",$datos));
-                /* 
-                (5, gdgfd,6573)
-                (2,'sdsfs',453) */
-           } 
+		$i++;
+		if($i>1){
+                $arrDatos = array();
+                foreach($datos as $data){
+                    if(is_numeric($data)){
+                        array_push($arrDatos, floatval($data));
+                    } else {
+                        array_push($arrDatos, "'$data'");
+                    }
+                } 
+                $bd->insertarDatosEnTabla((implode(",",$arrDatos)), $idTabla);
+           }
 	}
+
+    header("location: ../view/html/create.php");
 
 ?>
