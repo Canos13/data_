@@ -78,5 +78,25 @@
             }
             $this->sql->query($consulta);
         }
+
+        public function numTablasEnBD(){
+            $consulta = "SELECT count(*) AS numTablas FROM categoria";
+            $resultado = $this->sql->query($consulta);
+            while($row = $resultado->fetch_assoc()){
+                $num =  $row['numTablas'];
+            }  
+            return $num;
+        }
+
+        public function numColumnas($nombreTabla){
+            $consulta = "SELECT count(*) AS NUMBEROFCOLUMNS FROM information_schema.columns WHERE table_name = '$nombreTabla'";
+            $resultado = $this->sql->query($consulta);
+            if($resultado){
+                while($row = $resultado->fetch_assoc()){
+                    $num =  $row['NUMBEROFCOLUMNS'];
+                }  
+                return $num;
+            }
+        }
     } 
 ?>
