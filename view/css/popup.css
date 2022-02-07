@@ -88,5 +88,9 @@ input[type="submit"]{
     font-size: 1.16rem;
 }
  
-  
+.img-csv{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
  
