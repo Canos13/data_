@@ -105,7 +105,6 @@
             idCateg.setAttribute("value", index);
         }
 
-
         function val(index){
             console.log(index);
             var idCateg = document.getElementById('idCate');

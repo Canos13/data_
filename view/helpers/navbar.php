@@ -31,12 +31,7 @@
                 <?php  if(isset($_SESSION['user_id'])){ ?>
                     <a class="btn" href="create.php">Crear secciones</a>
                 <?php } ?>
-                <a class="btn" href=<?php if(isset($band) && $band==2){
-                                    echo "view/html/about.php";
-                                } else { 
-                                    echo "about.php"; 
-                                } 
-                          ?> >Acerca de</a>
+                
             </div>
             
             
