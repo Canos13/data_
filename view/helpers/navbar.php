@@ -1,7 +1,12 @@
 </head>
 <body>
         <header class="cabecera">
-            <h2 class="logo">LOGO</h2> 
+            <img class="logo" src="<?php if(isset($band) && $band==2){
+                                    echo "view/images/log.jpeg";
+                                } else { 
+                                    echo "../images/log.jpeg"; 
+                                } 
+                          ?>">
             <div class="btns">
                 <a 
                     class="btn" 
@@ -26,8 +31,12 @@
                 <?php  if(isset($_SESSION['user_id'])){ ?>
                     <a class="btn" href="create.php">Crear secciones</a>
                 <?php } ?>
-                <a class="btn" href="">Acerca de</a>
-                <a class="btn" href="">Contactos</a>
+                <a class="btn" href=<?php if(isset($band) && $band==2){
+                                    echo "view/html/about.php";
+                                } else { 
+                                    echo "about.php"; 
+                                } 
+                          ?> >Acerca de</a>
             </div>
             
             
