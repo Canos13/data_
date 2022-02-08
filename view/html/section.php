@@ -12,16 +12,26 @@
     $categoria = new Categoria();
 
     $categoria = $bd->consultarCategorias();
-    foreach($categoria as $cate){
 
+    foreach($categoria as $cate){
         $numColTablaActual = $bd->numColumnas(($cate->getName()));
-        echo $numColTablaActual.'<br />';
+
+        if($numColTablaActual > 2){
+            $columName = $bd->nombreCols(($cate->getName()));
+            $primerCol = $columName[1];
+            $segundaCol = $columName[2];
+            
+            $datosPrimeraCol = $bd->datosCols(($cate->getName()), $primerCol);
+            $datosSegundaCol = $bd->datosCols(($cate->getName()), $segundaCol);
+           
+            echo '<br /><br />';
+            print_r($datosPrimeraCol);
+            echo '<br /><br />';
+            print_r($datosSegundaCol);
+
+        }
+        
         /* printf(" %s ", $resultado->getName()); */
     }
-
-
-    /* $num = $bd->numTablasEnBD(); 
-    echo $num;*/
-
     
 ?>

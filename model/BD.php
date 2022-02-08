@@ -79,14 +79,14 @@
             $this->sql->query($consulta);
         }
 
-        public function numTablasEnBD(){
+        /* public function numTablasEnBD(){
             $consulta = "SELECT count(*) AS numTablas FROM categoria";
             $resultado = $this->sql->query($consulta);
             while($row = $resultado->fetch_assoc()){
                 $num =  $row['numTablas'];
             }  
             return $num;
-        }
+        } */
 
         public function numColumnas($nombreTabla){
             $consulta = "SELECT count(*) AS NUMBEROFCOLUMNS FROM information_schema.columns WHERE table_name = '$nombreTabla'";
@@ -94,8 +94,32 @@
             if($resultado){
                 while($row = $resultado->fetch_assoc()){
                     $num =  $row['NUMBEROFCOLUMNS'];
-                }  
+                }
                 return $num;
+            }
+        }
+
+        public function nombreCols($nombreTabla){
+            $consulta = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$nombreTabla'";
+            $resultado = $this->sql->query($consulta);
+            $nombreColumnas = array();
+            if($resultado){
+                while($row = $resultado->fetch_assoc()){
+                    array_push($nombreColumnas, $row['COLUMN_NAME']);
+                }  
+                return $nombreColumnas;
+            }
+        }
+
+        public function datosCols($nombreTabla,$nombreCol){
+            $consulta = "SELECT $nombreCol FROM $nombreTabla";
+            $resultado = $this->sql->query($consulta);
+            $datosCol = array();
+            if($resultado){
+                while($row = $resultado->fetch_assoc()){
+                    array_push($datosCol, $row["$nombreCol"]);
+                }  
+                return $datosCol;
             }
         }
     } 
