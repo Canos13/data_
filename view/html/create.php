@@ -23,7 +23,7 @@
         <?php 
             $bd = new BD();
             $categorias = new Categoria();
-            $categorias = $bd->consultarCategorias();
+            $categorias = $bd->consultarCategoriasUser($_SESSION['user_id']);
 
             if($categorias){
                 foreach($categorias as $categoria){

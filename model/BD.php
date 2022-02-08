@@ -35,8 +35,8 @@
             } 
         }
 
-        public function ingresarCategoria($nombre){
-            $consulta = "INSERT INTO categoria (nombre) values ('$nombre')";
+        public function ingresarCategoria($nombre, $userId){
+            $consulta = "INSERT INTO categoria (nombre, userId) values ('$nombre',$userId)";
             $create = "CREATE TABLE $nombre (id INT PRIMARY KEY)";
             $this->sql->query($consulta);
             $this->sql->query($create);
@@ -45,6 +45,19 @@
         public function consultarCategorias(){
             $categorias = array();
             $consulta = "SELECT * FROM categoria";
+            $resultado = $this->sql->query($consulta);
+            while($row = $resultado->fetch_assoc()){
+                $categoria = new Categoria();
+                $categoria->setId($row['id']);
+                $categoria->setName($row['nombre']);
+                array_push($categorias, $categoria);
+            }
+            return $categorias;
+        }
+
+        public function consultarCategoriasUser($userId){
+            $categorias = array();
+            $consulta = "SELECT * FROM categoria WHERE userId=$userId";
             $resultado = $this->sql->query($consulta);
             while($row = $resultado->fetch_assoc()){
                 $categoria = new Categoria();
@@ -78,15 +91,6 @@
             }
             $this->sql->query($consulta);
         }
-
-        /* public function numTablasEnBD(){
-            $consulta = "SELECT count(*) AS numTablas FROM categoria";
-            $resultado = $this->sql->query($consulta);
-            while($row = $resultado->fetch_assoc()){
-                $num =  $row['numTablas'];
-            }  
-            return $num;
-        } */
 
         public function numColumnas($nombreTabla){
             $consulta = "SELECT count(*) AS NUMBEROFCOLUMNS FROM information_schema.columns WHERE table_name = '$nombreTabla'";

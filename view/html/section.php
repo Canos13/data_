@@ -25,14 +25,14 @@
             $datosPrimeraCol = $bd->datosCols(($cate->getName()), $primerCol);
             $datosSegundaCol = $bd->datosCols(($cate->getName()), $segundaCol); ?>
            
-           <canvas id="<?php echo $cate->getName() ?>" width="400" height="120"></canvas>
+           <canvas id="<?php echo $cate->getName(); ?>" width="400" height="120"></canvas>
             <script>
-                var ctx = document.getElementById("<?php echo $cate->getName() ?>");
+                var ctx = document.getElementById("<?php echo $cate->getName(); ?>");
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         datasets: [{
-                            label: 'Titulo',
+                            label: '<?php echo $cate->getName(); ?>',
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -63,11 +63,11 @@
 
                 <?php
                     foreach($datosPrimeraCol as $primera){ ?>
-                        myChart.data['labels'].push(<?=   "'$primera'"  ?>);
+                        myChart.data['labels'].push(<?php  echo "'$primera'";  ?>);
                 <?php  } 
 
                     foreach($datosSegundaCol as $segunda){ ?>
-                        myChart.data['datasets'][0].data.push(<?=  $segunda ?>);
+                        myChart.data['datasets'][0].data.push(<?php echo $segunda; ?>);
                 <?php  } ?>
 
             </script>
