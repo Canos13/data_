@@ -14,7 +14,7 @@
                             if(isset($_SESSION['user_id'])){ 
                                 echo "home.php"; 
                             } else { 
-                                    echo "/data_";
+                                    echo "index.php";
                                 }  
                           ?> 
                 >Inicio</a>
